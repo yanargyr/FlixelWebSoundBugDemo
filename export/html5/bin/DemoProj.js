@@ -915,7 +915,7 @@ ApplicationMain.main = function() {
 ApplicationMain.create = function(config) {
 	var app = new openfl_display_Application();
 	ManifestResources.init(config);
-	app.meta.h["build"] = "16";
+	app.meta.h["build"] = "1";
 	app.meta.h["company"] = "HaxeFlixel";
 	app.meta.h["file"] = "DemoProj";
 	app.meta.h["name"] = "DemoProj";
@@ -3502,8 +3502,6 @@ openfl_display_Sprite.prototype = $extend(openfl_display_DisplayObjectContainer.
 });
 var Main = function() {
 	openfl_display_Sprite.call(this);
-	Music.initTracks();
-	Music.playLoop("music_track_1");
 	this.addChild(new flixel_FlxGame(0,0,PlayState));
 };
 $hxClasses["Main"] = Main;
@@ -3719,7 +3717,7 @@ ManifestResources.init = function(config) {
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$nokiafc22_$ttf);
 	openfl_text_Font.registerFont(_$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf);
 	var bundle;
-	var data = "{\"name\":null,\"assets\":\"aoy4:pathy34:assets%2Fdata%2Fdata-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R7R6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R8R6tgoR2i103277R3y5:SOUNDR5y30:assets%2Fmusic%2FtestTrack.oggy9:pathGroupaR10hR6tgoR2i15439495R3y5:MUSICR5y27:assets%2Fmusic%2Ftrack1.oggR11aR13hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R14R6tgoR2i2114R3R12R5y26:flixel%2Fsounds%2Fbeep.mp3R11aR15y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R12R5y28:flixel%2Fsounds%2Fflixel.mp3R11aR17y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3R9R5R16R11aR15R16hgoR2i33629R3R9R5R18R11aR17R18hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R19R20y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3y5:IMAGER5R25R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R26R5R27R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
+	var data = "{\"name\":null,\"assets\":\"aoy4:pathy34:assets%2Fdata%2Fdata-goes-here.txty4:sizezy4:typey4:TEXTy2:idR1y7:preloadtgoR0y36:assets%2Fimages%2Fimages-go-here.txtR2zR3R4R5R7R6tgoR2i20978824R3y5:MUSICR5y30:assets%2Fmusic%2F20-MB-OGG.oggy9:pathGroupaR9hR6tgoR0y36:assets%2Fmusic%2Fmusic-goes-here.txtR2zR3R4R5R11R6tgoR2i103277R3y5:SOUNDR5y30:assets%2Fmusic%2FtestTrack.oggR10aR13hR6tgoR2i15439495R3R8R5y27:assets%2Fmusic%2Ftrack1.oggR10aR14hR6tgoR0y36:assets%2Fsounds%2Fsounds-go-here.txtR2zR3R4R5R15R6tgoR2i9573R3R12R5y27:assets%2Fsounds%2Fwajit.oggR10aR16hR6tgoR2i2114R3R8R5y26:flixel%2Fsounds%2Fbeep.mp3R10aR17y26:flixel%2Fsounds%2Fbeep.ogghR6tgoR2i39706R3R8R5y28:flixel%2Fsounds%2Fflixel.mp3R10aR19y28:flixel%2Fsounds%2Fflixel.ogghR6tgoR2i5794R3R12R5R18R10aR17R18hgoR2i33629R3R12R5R20R10aR19R20hgoR2i15744R3y4:FONTy9:classNamey35:__ASSET__flixel_fonts_nokiafc22_ttfR5y30:flixel%2Ffonts%2Fnokiafc22.ttfR6tgoR2i29724R3R21R22y36:__ASSET__flixel_fonts_monsterrat_ttfR5y31:flixel%2Ffonts%2Fmonsterrat.ttfR6tgoR0y33:flixel%2Fimages%2Fui%2Fbutton.pngR2i519R3y5:IMAGER5R27R6tgoR0y36:flixel%2Fimages%2Flogo%2Fdefault.pngR2i3280R3R28R5R29R6tgh\",\"rootPath\":null,\"version\":2,\"libraryArgs\":[],\"libraryType\":null}";
 	var manifest = lime_utils_AssetManifest.parse(data,ManifestResources.rootPath);
 	var library = lime_utils_AssetLibrary.fromManifest(manifest);
 	lime_utils_Assets.registerLibrary("default",library);
@@ -4062,44 +4060,6 @@ _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf.prototype = $extend(openfl
 	__class__: _$_$ASSET_$_$OPENFL_$_$flixel_$fonts_$monsterrat_$ttf
 });
 Math.__name__ = "Math";
-var Music = function() { };
-$hxClasses["Music"] = Music;
-Music.__name__ = "Music";
-Music.musicLibrary = null;
-Music.lastPlayedTrack = null;
-Music.initTracks = function() {
-	Music.musicLibrary = new haxe_ds_StringMap();
-	Music.musicLibrary.h["music_track_1"] = Music.BG_TRACK_1;
-};
-Music.playLoop = function(track_id) {
-	try {
-		var track = Music.musicLibrary.h[track_id];
-		if(track != null) {
-			haxe_Log.trace("Playing bg track [" + track_id + "] at vol:" + Music.getVol() + " in LOOP",{ fileName : "source/Music.hx", lineNumber : 41, className : "Music", methodName : "playLoop"});
-			flixel_FlxG.sound.playMusic(track,Music.music_volume);
-			Music.lastPlayedTrack = track_id;
-		}
-	} catch( _g ) {
-		haxe_NativeStackTrace.lastError = _g;
-	}
-};
-Music.getVol = function() {
-	return Music.music_volume;
-};
-Music.setVol = function(newVol) {
-	if(newVol < 0 || newVol > 1) {
-		throw haxe_Exception.thrown("music volume range is [0-1]");
-	}
-	var prevVolume = flixel_FlxG.sound.music._volume;
-	Music.music_volume = newVol;
-	flixel_FlxG.sound.music.set_volume(Music.music_volume);
-	if(newVol == 0) {
-		flixel_FlxG.sound.music.pause();
-	} else if(prevVolume == 0 && newVol > 0) {
-		flixel_FlxG.sound.music.resume();
-	}
-	haxe_Log.trace("New Music volume = " + Music.music_volume,{ fileName : "source/Music.hx", lineNumber : 74, className : "Music", methodName : "setVol"});
-};
 var flixel_util_IFlxDestroyable = function() { };
 $hxClasses["flixel.util.IFlxDestroyable"] = flixel_util_IFlxDestroyable;
 flixel_util_IFlxDestroyable.__name__ = "flixel.util.IFlxDestroyable";
@@ -4869,7 +4829,7 @@ PlayState.__super__ = flixel_FlxState;
 PlayState.prototype = $extend(flixel_FlxState.prototype,{
 	create: function() {
 		flixel_FlxState.prototype.create.call(this);
-		var text = new flixel_text_FlxText(0,0,0,"There is no sound. If you hit the +/-/0 keys, it will start playing, and if you pause/unpause, all is good\r\n\t\t\tIf you refresh and just pause/unpause, the music will start paying but with at least 2 channels",8);
+		var text = new flixel_text_FlxText(0,0,0,"There is no sound. \r\n\t\t1) If you hit the +/-/0 keys, it will start playing, and if you pause/unpause, all is good.\r\n\t\t2) If you refresh and just pause/unpause, the music will start paying but with at least 2 channels.\r\n\t\t3) If you hit Enter, a sound fx will play and this will unpause the music as well.",8);
 		if(17 == 1 || 17 == 17) {
 			text.set_x((flixel_FlxG.width - text.get_width()) / 2);
 		}
@@ -4877,10 +4837,14 @@ PlayState.prototype = $extend(flixel_FlxState.prototype,{
 			text.set_y((flixel_FlxG.height - text.get_height()) / 2);
 		}
 		this.add(text);
-		Music.playLoop("music_track_1");
+		flixel_FlxG.sound.playMusic("assets/music/20-MB-OGG.ogg",0.5);
 	}
 	,update: function(elapsed) {
 		flixel_FlxState.prototype.update.call(this,elapsed);
+		var _this = flixel_FlxG.keys.justPressed;
+		if(_this.keyManager.checkStatusUnsafe(13,_this.status)) {
+			flixel_FlxG.sound.play("assets/sounds/wajit.ogg",0.5);
+		}
 	}
 	,__class__: PlayState
 });
@@ -74460,7 +74424,7 @@ var lime_utils_AssetCache = function() {
 	this.audio = new haxe_ds_StringMap();
 	this.font = new haxe_ds_StringMap();
 	this.image = new haxe_ds_StringMap();
-	this.version = 399071;
+	this.version = 323605;
 };
 $hxClasses["lime.utils.AssetCache"] = lime_utils_AssetCache;
 lime_utils_AssetCache.__name__ = "lime.utils.AssetCache";
@@ -123287,9 +123251,6 @@ openfl_display_DisplayObject.__tempStack = new lime_utils_ObjectPool(function() 
 });
 openfl_text_Font.__fontByName = new haxe_ds_StringMap();
 openfl_text_Font.__registeredFonts = [];
-Music.BG_TRACK_1 = "assets/music/track1.ogg";
-Music.TRACK_1 = "music_track_1";
-Music.music_volume = 0.5;
 flixel_FlxBasic.idEnumerator = 0;
 Xml.Element = 0;
 Xml.PCData = 1;
